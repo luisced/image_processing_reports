@@ -3,6 +3,8 @@
   "another": "Another Page",
   "advanced": "Advanced (A Folder)",
   "conceptos_basicos": "Python Basics",
+  "numpy": "Numpy",
+  "open_cv": "Open CV",
   "about": {
     "title": "About",
     "type": "page"
