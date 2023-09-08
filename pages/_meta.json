@@ -4,7 +4,7 @@
   "advanced": "Advanced (A Folder)",
   "conceptos_basicos": "Python Basics",
   "numpy": "Numpy",
-  "opencv": "Open CV",
+  "open_cv": "Open CV",
   "about": {
     "title": "About",
     "type": "page"
