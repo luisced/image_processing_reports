@@ -1,0 +1,94 @@
+## Cómo leer una imagen
+
+```python
+import cv2
+
+# Path to the image file
+image_path = 'path_to_your_image.jpg'
+
+# Read the image
+image = cv2.imread(image_path)
+
+# Check if the image was successfully read
+if image is not None:
+    # Display the image
+    cv2.imshow('Image', image)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+else:
+    print('Failed to read the image.')
+```
+
+## Tamaño de mi imagen
+
+```python
+import cv2
+
+# Path to the image file
+image_path = 'path_to_your_image.jpg'
+
+# Read the image
+image = cv2.imread(image_path)
+
+# Get the size of the image
+height, width, channels = image.shape
+
+# Print the size of the image
+print(f'Image size: {width}x{height} pixels')
+```
+
+## Acceder a un pixel en particular
+
+```python
+import cv2
+
+image = cv2.imread("image.jpg")    # Read the image
+
+# Access a specific pixel
+x = 100    # x-coordinate
+y = 200    # y-coordinate
+
+pixel_value = image[y, x]    # Access the pixel value at (x, y)
+
+print(pixel_value)
+```
+
+## Abrir una imagen utilizando un `.ipynb`
+
+### 1. Importar librerías
+
+```python showLineNumbers
+import cv2 as cv
+import matplotlib.pyplot as plt
+```
+
+### 2. Leer la imagen
+
+```python showLineNumbers
+img = cv.imread('image.jpg')
+```
+
+### 3. Convertir la imagen a RGB
+
+```python showLineNumbers
+img = cv.cvtColor(img, cv.COLOR_BGR2RGB)
+```
+
+import { Callout } from "nextra/components";
+
+<Callout emoji="💡">
+
+    La discrepancia en los formatos de color puede llevar a visualizaciones
+    incorrectas y problemas de compatibilidad entre bibliotecas. Por lo tanto, es
+    común utilizar la función cvtColor de OpenCV para convertir imágenes de BGR a
+    RGB antes de visualizarlas con Matplotlib o realizar análisis adicionales que
+    requieran el formato RGB.
+
+</Callout>
+
+### 4. Mostrar la imagen
+
+```python showLineNumbers
+plt.imshow(img)
+plt.show()
+```
