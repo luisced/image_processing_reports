@@ -1,0 +1,59 @@
+# Bucles o Ciclos
+
+Los bucles o ciclos son estructuras que nos permiten la repetición de una sección de código siempre y cuando se cumpla una cierta condición
+
+Existen diferentes tipos de ciclos, como lo son los siguientes:
+
+### Ciclo while
+
+```py
+contador = 3
+
+while(contador != 0): # mientras el contador no sea igual a cero
+    print(contador)
+    contador -= 1
+```
+
+Output de la consola
+
+```py
+>>> 3
+>>> 2
+>>> 1
+```
+
+# Ciclo for
+
+```py
+for index in range(0, 3, 1): # para cada indice desde 0 
+# a 3, sumando uno cada que se repita el ciclo
+    print(index)
+```
+
+Output de la consolsa
+
+```py
+>>> 0
+>>> 1
+>>> 2 
+>>> 3
+```
+
+La particularidad del ciclo for es que este puede generar objetos iteradores que nos van a permitir movernos en todo tipo de datos, como el siguiente ejemplo
+
+```py
+nombre = "Bruno"
+
+for letra in nombre:
+    print(letra)
+```
+
+Output de la consolsa
+
+```py
+>>>B
+>>>r
+>>>u 
+>>>n 
+>>>o 
+```

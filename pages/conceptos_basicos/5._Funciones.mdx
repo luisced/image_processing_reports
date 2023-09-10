@@ -1,0 +1,58 @@
+# Funciones
+
+## Definición de una función:
+
+Una función es un conjunto de instrucciones que realizan una tarea específica, la podemos mandar a llamar y ejecutar desde otras partes del programa y las veces que sea necesario, se utilizan para organizar y reutilizar código, las funciones pueden recibir parámetros que utilizarán para la realización de los procesos que se llevarán a cabo, a su vez, también pueden regresar o no un valor
+
+Las definimos de la siguiente manera
+
+``` py filename = "función" {3} copy
+def suma(n1, n2):
+    return n1 + n2
+``` 
+
+La siguiente función "suma" recibe como parámetros dos valores n1 y n2, y nos regresa la suma de ambos.
+
+Podemos llamar la función de la siguiente manera:
+
+``` py
+n1 = 5
+n2 = 25
+
+valores_sumados = suma(n1, n2)
+print(valores_sumados)
+```
+### Output de la consola
+
+```
+>>> 30
+```
+
+### Otro ejemplo de función
+x   
+```py
+def saludar(nombre: str, apellido: str):
+    nombre = nombre
+    print(f"Saludos {nombre} {apellido}")
+```
+
+LLamando a la función
+
+``` py
+nombre = "Emiliano"
+apellido = "Arias"
+saludar(nombre, apellido)
+```
+
+Output de la consola
+``` 
+>>> Saludos Emiliano Arias
+```
+
+### Paso de datos por referencia
+Al momento de mandar los parámetros a una función, estos se tienen que mandar de manera ordenada, ya que la forma en la que los mandemos al momento de mandar a llamar la función, es la manera en la que se vana  recibir en la función, por lo que se tienen que mandar de manera ordenada, aunque podemos mandar los parámetros con una referencia, lo que nos va a permitir mandarlos en desorden, pero especificando previamente a quien estamos mandando los datos de la siguiente manera:
+
+
+``` py
+saludar(apellido = "Arias", nombre = "Emiliano")
+```

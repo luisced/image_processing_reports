@@ -1,0 +1,165 @@
+# Listas
+
+Una lista es una colección ordeanada de cualquier tipo de datos, nos permite manipularla y trabajar con sus datos.
+
+Para definir una lista utilizaremos "[]" y dentro de ellos pondremos los valores que queremos almacenar ahí.
+
+```py
+lista = [1, 2, True, "Hola", [1, 2, 3]]
+```
+
+##Índices
+
+Las listas, al ser conjuntos ordenados de datos, están indexadas, esto quiere decir que cada dato dentro de la lista, tiene un índice específico, estos índices empiezan desde cero, por lo que si una lista tiene tres elementos, estos se verán de la siguiente manera:
+
+```py
+lista = [1, 2, 3]
+
+print(lista[0])
+print(lista[1])
+print(lista[2])
+```
+Otuput de la consola
+
+```py
+>>> 1
+>>> 2
+>>> 3
+```
+Utilizamos "[]" para accesar a los valores almacenados en ese índice de la listas
+
+Podemos encontrar el último valor de la lista utiliando índices negativos de la siguiente manera:
+
+```py
+print(lista[-1])
+```
+
+Output de la consola
+
+```py
+>>> 3
+```
+## Slicing
+
+El slicing es un procedimiento que nos ayuda a seleccionar una sección específica de la lista aprovechando que esta es indexada, por lo que utilizaremos los índices para especificar la sección que queremos seleccionar de la siguiente manera:
+
+```py
+lista = [1, 2, 3]
+
+print(lista[0:2]) # aquí estamos indicando que vamos a cortar 
+# desde el inicio hasta el segundo valor
+```
+Output de la consola
+```py
+>>>[1, 2]
+```
+
+Otro ejemplo de esto:
+Podemos dejar el espacio vacío y esto va a indicar que vamos a ir desde el inicio o hasta el final respectivamente
+
+```py
+print(lista[:2]) # del inicio hasta el índice 2
+
+print(lista[2:]) # del índice dos hasta el final
+```
+Otuput de la consola
+
+```py
+>>> [1, 2]
+
+>>> [3]
+```
+
+## Funcion len
+
+Podemos utilizar la función "len" para conocer la longitud de nuestra lista, es decir la cantidad de datos almacenados en nuestra lista, la usaremos de la siguiente manera:
+
+```py
+print(len(lista))
+```
+Output de la consola
+```py
+>>> 5
+```
+
+## Métodos de las listas
+
+Las listas tienen una gran extensión de métodos que podemos utilizar para trabajar con ellas, podemos acudir a la lista de métodos que podemos utilizar usando la función diferentes
+
+### Función dir 
+
+```py
+dir(lista)
+``` 
+
+Otuput de la consola
+
+``` py
+>>>['__add__',
+  '__class__',
+  '__class_getitem__',
+  '__contains__',
+  '__delattr__',
+  '__delitem__',
+  '__dir__',
+  '__doc__',
+  '__eq__',
+  '__format__',
+  '__ge__',
+  '__getattribute__',
+  '__getitem__',
+  '__getstate__',
+  '__gt__',
+  '__hash__',
+  '__iadd__',
+  '__imul__',
+  '__init__',
+  '__init_subclass__',
+  '__iter__',
+  '__le__',
+  '__len__',
+  '__lt__',
+  '__mul__',
+  ..
+  'insert',
+  'pop',
+  'remove',
+  'reverse',
+  'sort']
+```
+
+La mayoría de los métodos tienen nombres que nos dicen explícitamente lo que hacen, aunque es recomendable siempre acudir a la documentación para conocer más sobre el uso de cada método
+
+## LLamada de métodos y operador .
+
+Para llamar a un método utilizaremos el operador "." de la siguiente manera
+
+``` py
+lista1 = [1, 2]
+lista2 = [3, 4]
+
+lista1.extend(lista2) # esta función une la lista dos a la lista uno
+print(lita1)
+```
+
+Otuput de la consola
+
+```py
+>>> [1, 2, 3, 4]
+```
+
+Otro ejemplo de esto:
+
+```py
+lista3 = [4, 5, 2, 1, 3]
+
+lista3.sort() #esta función ordena la lista de mayor a menor
+print(lista3)
+```
+
+Output de la consola
+
+```py
+>>> [1, 2, 3, 4, 5]
+```
+

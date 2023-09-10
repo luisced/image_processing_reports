@@ -1,8 +1,57 @@
-# Python Basics
+# Tipos de datos
 
-```py filename="while.py" {3} copy
+## Definición de variable: 
 
-while True:
-    print("Hello")
+Una variable es un espacio en memoria en donde podemos almacenar cualquqier tipo de dato, es como una caja virual en donde podemos guardar todo tipo de información, existen muchos tipos diferentes de datos que podemos almacenar en las variables, Python cuenta con la particularidad que el lenguaje es de tipado dinámico, por lo que no es necesario especificar el tipo de dato que estamos introduciendo, ya que el programa va a detectar automáticamente lo que estamos introduciendo, brindándonos más versatilidad al momento de declarar y modificar cualquier tipo de dato.
+
+```py filename = "Tipos de datos" {3} copy
+Entero = 10
+String = "Hola clase"
+Booleano = False
+Float = 10.14
+# etc...
+```
+
+## Valores inmediatos
+Los valores inmediatos son aquellos que son introducidos por nosotros, y que no requieren de un proceso para ser creaedos, puede haber de muchos tipos diferentes
+```py filename="Valores inemdiatos" {3} copy
+int_inmediato = 10
+string_inmediato = "Hola mundo"
+bool_inmediato = False
+```
+
+## Función type
+
+Podemos conocer el tipo de dato de cualquiera de nuestras variables utilizando la función type, esta función va a tomar como parámetro la variable que queremos revisar y nos va a regresar de output el tipo de nuestra variable.
+
+``` py filename = "Función type" {3} copy
+X_int = 200
+type(X_int)
+``` 
+
+### Output de la consola
+
+``` 
+>>> int
+```
+
+## Conversión de tipos de datos
+
+Al Python ser de tipado dinámico, podemos utilizar palabras clave para convertir una variable de un tipo a otro, a este método, lo llamaremos casteo y se hace de la siguiente manera:
+
+``` py filename = "Conversión de variables" {3} copy
+string_a_int = "1"
+
+#Pasamos el string a un int
+
+new_int = int(string_a_int)
+
+print(new_int + 1)
+
+```
+### Output de la consola
+
+``` 
+>>> 2
 
 ```
