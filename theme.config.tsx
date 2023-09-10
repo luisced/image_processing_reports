@@ -4,11 +4,11 @@ import { DocsThemeConfig } from "nextra-theme-docs";
 const config: DocsThemeConfig = {
 	logo: <span>Procesamiento de Imágenes</span>,
 	project: {
-		link: "https://github.com/shuding/nextra-docs-template",
+		link: "https://github.com/luisced/image_processing_reports",
 	},
-	docsRepositoryBase: "https://github.com/shuding/nextra-docs-template",
+	docsRepositoryBase: "https://github.com/luisced/image_processing_reports",
 	footer: {
-		text: "Nextra Docs Template",
+		text: "MIT 2023 © Procesamiento de Imágenes",
 	},
 };
 
