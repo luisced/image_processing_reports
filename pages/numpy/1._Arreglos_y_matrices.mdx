@@ -1,0 +1,151 @@
+# Funciones NumPy 
+
+## Arrays
+
+Un array es un conjutnto de números ordenados en columnas y filas de los cuales se utilizan mucho en el procesamiento de imágenes debido a que se pueden represnetar los pixeles en matrices o arrays.
+En NumPy es posible la creación de Arrays o Matrices de una o dos dimensiones.
+
+### Array de una y dos dimensiones
+
+Como ya habíamos dicho se pueden hacer Arrays de una y dos dimensiones, esto se logrará usando una función de numpy llamada `array()`.
+
+```py
+import numpy as np # Importamos el paquete Numpy como np
+np.array([1,2,3]) #Forzosamente tenemos que pasar una lista para que sea tomada en cuenta como un arreglo de una dimension
+```
+
+Output:
+
+```py 
+>>> array([1, 2, 3])
+```
+
+En el caso de que queramos hacer un array bidimensional lo que hacermos será que dentro de una lista, agregaremos dos listas separadas por una coma.
+```py
+import numpy as np # Importamos el paquete Numpy como np
+np.array([[1,2,3],[1,2,3]]) #Forzosamente tenemos que pasar una lista para que sea tomada en cuenta como un arreglo de una dimension
+```
+
+Output: 
+
+```py
+>>> array([[1, 2, 3],
+       [1, 2, 3]])
+```
+
+### lista a array
+ 
+Usando como paramentro el generar una lsita en un rango convencional y con un segundo parametro como el tipo de dato es decir cuantos bits queremos que se ocupen para el tipo de dato especifico ya sea, interger, float, bool, etc.
+Para convertir una lista en un arreglo se utiliza `np.array()`y usamos un range con un casting a lista.
+```py
+import numpy as np
+np.array(list(range(10)) , dtype=np.float64)
+```
+
+Output:
+
+```py
+>>> array([[1, 2, 3],
+       [1, 2, 3]])
+```
+## Matrices
+
+Las matrices son objetos del la álgebra lineal que nos permiten la manipulación de imágenes. NumPy nos brinda funciones que ya están prehechas y nos facilitan la creación de cierto tipos de matrices y algunas manipulaciones de estas mismas que solemos ver en la álgebra lineal.
+Las matrices son similares al concepto de arrays pero para estos últimos solo podemos tener elementos del mismo tipo.
+Un ejemplo de las funciones que nos brinda NumPy es la función `ones()` lo cual nos permite hacer una mtriz llena de numeros "1", le damos el tamaño de filas y columnas como ambos parametros.
+```py
+x = np.ones((10,10) , dtype=np.int32)
+print(x)
+```
+
+Output:
+
+```py
+>>>
+[[1 1 1 1 1 1 1 1 1 1]
+ [1 1 1 1 1 1 1 1 1 1]
+ [1 1 1 1 1 1 1 1 1 1]
+ [1 1 1 1 1 1 1 1 1 1]
+ [1 1 1 1 1 1 1 1 1 1]
+ [1 1 1 1 1 1 1 1 1 1]
+ [1 1 1 1 1 1 1 1 1 1]
+ [1 1 1 1 1 1 1 1 1 1]
+ [1 1 1 1 1 1 1 1 1 1]
+ [1 1 1 1 1 1 1 1 1 1]]
+```
+
+### Matriz cero
+
+Al igual que la función `ones()` existe la función zeros que nos permite tener una matriz llena de ceros, en el procesamiento de imagenes una matriz con ceros significaría la ausencia de color o negro.
+Se puede crear una matriz de ceros usando la función `zeros()`.
+```py
+import numpy as np
+a = np.zeros((5,5), dtype=np.int32)
+print(a)
+```
+
+Output:
+
+```py
+>>>
+[[0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0]]
+```
+
+### Matriz identidad
+
+En álgebra lineal la matriz identidad es lo que conocemos como el uno, en la álgebra matricial es el neutro multiplicativo.
+Para poder hacer una matriz identidad utilizaremos la funcion `eye()` (Es importante mencionar que solo pueden haber matrices identidad cuadradas).
+El único parámetro que podemos pasar es de de cuantas filas y columnas sea con un solo numero es decir si pasamos "5" sera una matriz de 5 filas y 5 columnas.
+```py
+import numpy as np
+np.eye(5)
+```
+
+Output:
+
+```py
+>>>
+array([[1., 0., 0., 0., 0.],
+       [0., 1., 0., 0., 0.],
+       [0., 0., 1., 0., 0.],
+       [0., 0., 0., 1., 0.],
+       [0., 0., 0., 0., 1.]])
+```
+
+### Matriz transpuesta
+
+Otra de las operaciones básicas de la álgebra lineal es el transponer una matriz y se logra de la siguiente manera.
+
+```py
+import numpy as np
+x=np.ones((5,3)) #creamos una matriz de n numero de filas y n numero de columnas 
+```
+Mostramos la forma en la que la matriz está hecha en este caso 5 filas y 3 columnas.
+```py
+x.shape
+```
+
+
+Output:
+
+```py
+>>>(5,3) #Como habíamos dicho, 5 filas y 3 columnas
+
+```
+
+Ahora para transponer la matriz lo unico que haremos es usar el método `T`
+
+```py
+x.T.shape #usamos shape para mostrar como es que se ha efectuado el cambio
+``` 
+
+Output:
+
+```py
+>>>(3,5) #las filas y las columnas se han transpuesto
+
+```
