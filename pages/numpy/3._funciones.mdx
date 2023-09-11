@@ -1,0 +1,89 @@
+# Funciones NumPy 
+
+## Función arange
+
+La función arange() nos permite generar listas en un determinado rango y con una secuenciación determinada.
+
+Por ejemplo:
+
+```py
+import numpy as np  # Importamos la librería Numpy
+np.arange(10)   # Genera lista de valores del 0 al 9 (sin incluir el último)
+```
+
+En este caso este será el output de consola:
+
+```py
+>>> array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+```
+
+La función arange cuando pasamos un único argumento nos dice que empieza desde el cero y se omite el numero que nosotros pusimos en este caso se imprime solo hasta el 9 ya que el 10 no se cuenta.
+Pero si queremso que empiece desde otro número es tan facil como hacer lo siguiente:
+
+```py
+import numpy as np  # Importamos la librería Numpy
+np.arange(3,10)   # agregamos un parametro más que será desde el número donde empezaremos hasta uno antes del 10
+```
+
+Output de consola:
+```py
+>>> array([3, 4, 5, 6, 7, 8, 9])
+```
+
+Hay un ultimo parametro de la función arange y es cada cuantos lugares contamos. Al no poner ese parametro automaticamente NumPy va  atomar como que el intervalo entre número incial y el número final va ser de uno.
+algo parecido a esto.
+
+```py
+import numpy as np  # Importamos la librería Numpy
+np.arange(3,10,1)   # el uno después del 10 nos indica cada cuantos lugares va a saltarse
+```
+output de consola:
+
+```py
+array([3, 4, 5, 6, 7, 8, 9])
+```
+
+Para poder encontrar las funciones existentes de numpy es tan facil como escribir:
+
+```py
+import numpy as np 
+dir(np)
+```
+Se mostrara algo parecido a esto.
+
+Output:
+```py
+['ALLOW_THREADS',
+ 'BUFSIZE',
+ 'CLIP',
+ 'DataSource',
+ 'ERR_CALL',
+ 'ERR_DEFAULT',
+ 'ERR_IGNORE',
+ 'ERR_LOG',
+ 'ERR_PRINT',
+ 'ERR_RAISE',
+ 'ERR_WARN',
+ 'FLOATING_POINT_SUPPORT',
+ 'FPE_DIVIDEBYZERO',
+ 'FPE_INVALID',
+ 'FPE_OVERFLOW',
+ 'FPE_UNDERFLOW',
+ 'False_',
+ 'Inf',
+ 'Infinity',
+ 'MAXDIMS',
+ 'MAY_SHARE_BOUNDS',
+ 'MAY_SHARE_EXACT',
+ 'NAN',
+ 'NINF',
+ 'NZERO',
+...
+ 'vstack',
+ 'where',
+ 'who',
+ 'zeros',
+ 'zeros_like']
+Output is truncated. View as a scrollable element or open in a text editor. Adjust cell output settings...
+```
+Las funciones de NumPy son muchas por lo cual siempre haya alguna duda spobre como funciona una de las funciones de NumPy es importante ir a la documentación de ésta librería.
