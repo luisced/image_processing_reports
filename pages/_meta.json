@@ -1,4 +1,5 @@
 {
+  "1er Parcial": {
   "index": "Abstract",
   "conceptos_basicos": "Python Basics",
   "numpy": "Numpy",
@@ -7,6 +8,7 @@
   "about": {
     "title": "About",
     "type": "page"
+  }},
+  "2ndo Parcial":{
   }
-  
 }
