@@ -1,0 +1,245 @@
+import { Steps } from "nextra/components";
+
+# Neighborhood Excercise
+
+## Introduction
+
+The Neighborhood class represents a neighborhood of cells in a matrix. This class provides methods to retrieve different types of neighbors (four, eight, m-neighbors) for a given cell in the matrix.
+
+<Steps>
+
+### Step 1: Import Necessary Libraries
+
+```py
+from dataclasses import dataclass
+from typing import List, Tuple, Set
+import numpy as np
+```
+
+### Step 2: Class Definition
+
+#### Class Definition
+
+`matrix`
+A numpy ndarray representing the matrix.
+
+`V`
+A set of integers representing specific values in the matrix.
+
+#### Constants
+
+`FOUR_NEIGHBORS`
+Directions for the four neighbors of a cell.
+
+`EIGHT_NEIGHBORS`
+Directions for the eight neighbors of a cell.
+
+```python showLineNumbers
+@dataclass
+class Neighborhood:
+    matrix: np.ndarray
+    V: Set[int]
+
+    # Constants for types of neighborhoods
+    FOUR_NEIGHBORS = [(-1, 0), (1, 0), (0, -1), (0, 1)]
+    EIGHT_NEIGHBORS = FOUR_NEIGHBORS + [(-1, -1), (-1, 1), (1, -1), (1, 1)]
+```
+
+#### Core Methods
+
+`__post_init__`
+Initializes the rows and columns attributes based on the shape of the matrix.
+
+`is_within_boundaries(i, j)`
+Checks if the given indices (i, j) are within the boundaries of the matrix.
+
+`__get_neighbors(i, j, directions, apply_adjacency)`
+A private method to get neighbors of a cell (i, j) based on the given directions.
+
+`get_four_neighbors(i, j, apply_adjacency)`
+Returns the four neighbors of the cell at position (i, j).
+
+`get_eight_neighbors(i, j, apply_adjacency)`
+Returns the eight neighbors of the cell at position (i, j).
+
+`get_m_neighbors(i, j, apply_adjacency)`
+Returns the m-neighbors of the cell at position (i, j) based on m-adjacency.
+
+`adyacencia8(arreglo, punto, V)`
+Returns the eight neighbors of the cell at position (i, j) based on the given adjacency set V.
+
+`getAscciMatrix(neighbors)`
+Generates an ASCII representation of the matrix with the given neighbors.
+
+```python showLineNumbers
+
+    def __post_init__(self):
+        """
+        Initialize the rows and cols attributes based on the shape of the matrix.
+        """
+        self.rows, self.cols = self.matrix.shape
+
+    def is_within_boundaries(self, i: int, j: int) -> bool:
+        """
+        Check if the given indices (i, j) are within the boundaries of the matrix.
+
+        :param i: Row index.
+        :param j: Column index.
+        :return: True if indices are within boundaries, False otherwise.
+        """
+        return 0 <= i < self.rows and 0 <= j < self.cols
+
+    def __get_neighbors(self, i: int, j: int, directions: List[Tuple[int, int]], apply_adjacency: bool = False) -> List[Tuple[int, int]]:
+        """
+        Get neighbors of a cell (i, j) based on the given directions.
+
+        :param i: Row index of the cell.
+        :param j: Column index of the cell.
+        :param directions: List of tuples representing directions to look for neighbors.
+        :param apply_adjacency: If True, return only neighbors that are within set V.
+        :return: List of tuples representing the coordinates of the neighbors.
+        """
+        neighbors = []
+        for dx, dy in directions:
+            new_i, new_j = i + dx, j + dy
+            if self.is_within_boundaries(new_i, new_j):
+                if apply_adjacency:
+                    if self.matrix[new_i, new_j] in self.V:
+                        neighbors.append((new_i, new_j))
+                else:
+                    neighbors.append((new_i, new_j))
+        return neighbors
+
+    def get_four_neighbors(self, i: int, j: int, apply_adjacency: bool = False) -> List[Tuple[int, int]]:
+        """
+        Get the four neighbors of the cell at position (i, j).
+
+        :param i: Row index of the cell.
+        :param j: Column index of the cell.
+        :param apply_adjacency: If True, return only neighbors that are within set V.
+        :return: List of tuples representing the coordinates of the four neighbors.
+        """
+        return self.__get_neighbors(i, j, self.FOUR_NEIGHBORS, apply_adjacency=apply_adjacency)
+
+    def get_eight_neighbors(self, i: int, j: int, apply_adjacency: bool = False) -> List[Tuple[int, int]]:
+        """
+        Get the eight neighbors of the cell at position (i, j).
+
+        :param i: Row index of the cell.
+        :param j: Column index of the cell.
+        :param apply_adjacency: If True, return only neighbors that are within set V.
+        :return: List of tuples representing the coordinates of the eight neighbors.
+        """
+        return self.__get_neighbors(i, j, self.EIGHT_NEIGHBORS, apply_adjacency=apply_adjacency)
+
+    def get_m_neighbors(self, i: int, j: int, apply_adjacency: bool = False) -> List[Tuple[int, int]]:
+        """
+        Get the m-neighbors of the cell at position (i, j) based on m-adjacency.
+
+        :param i: Row index of the cell.
+        :param j: Column index of the cell.
+        :param apply_adjacency: If True, return only neighbors that are within set V.
+        :return: List of tuples representing the coordinates of the m-neighbors.
+        """
+        four_neighbors = self.__get_neighbors(i, j, self.FOUR_NEIGHBORS, apply_adjacency=False)
+        eight_neighbors = self.__get_neighbors(i, j, self.EIGHT_NEIGHBORS, apply_adjacency=False)
+        m_neighbors = four_neighbors.copy()
+
+        for neighbor in eight_neighbors:
+            if neighbor not in four_neighbors:
+                i_neighbor, j_neighbor = neighbor
+                is_m_adjacent = all(
+                    (i_common, j_common) in four_neighbors
+                    for i_common, j_common in self.__get_neighbors(i_neighbor, j_neighbor, self.FOUR_NEIGHBORS, apply_adjacency=False)
+                    if (i_common, j_common) != (i, j)
+                )
+                if is_m_adjacent:
+                    m_neighbors.append(neighbor)
+
+        return self.adjacency(m_neighbors) if apply_adjacency else m_neighbors
+
+    def adyacencia8(arreglo, punto, V={1}):
+        x, y = punto
+        ady = []
+        if x > 0 and arreglo[x-1, y] in V:
+            ady.append((x-1, y))
+        if x < arreglo.shape[0] - 1 and arreglo[x+1, y] in V:
+            ady.append((x+1, y))
+        if y > 0 and arreglo[x, y-1] in V:
+            ady.append((x, y-1))
+        if y < arreglo.shape[1] - 1 and arreglo[x, y+1] in V:
+            ady.append((x, y+1))
+        if x > 0 and y > 0 and arreglo[x-1, y-1] in V:
+            ady.append((x-1, y-1))
+        if x > 0 and y < arreglo.shape[1] - 1 and arreglo[x-1, y+1] in V:
+            ady.append((x-1, y+1))
+        if x < arreglo.shape[0] - 1 and y > 0 and arreglo[x+1, y-1] in V:
+            ady.append((x+1, y-1))
+        if x < arreglo.shape[0] - 1 and y < arreglo.shape[1] - 1 and arreglo[x+1, y+1] in V:
+            ady.append((x+1, y+1))
+        return ady
+
+    def getAscciMatrix(self, neighbors: List[Tuple[int, int]]):
+
+        ascciMatrix = [['+' for _ in range(int(len(self.matrix)))] for _ in range(int(len(self.matrix[1])))]
+
+        for elemento in neighbors:
+            x, y = elemento
+
+            if 0 <= x < len(ascciMatrix) and 0 <= y < len(ascciMatrix[0]):
+                ascciMatrix[x][y] = '*'
+
+        ascciMatrix[1][1] = 'P'
+
+
+        return ascciMatrix
+
+```
+
+### Step 3: Usage
+
+#### Initializing the Matrix and Class
+
+```python
+
+# Initialize matrix with numpy 3 x 3
+matrix = np.array([
+        [1, 2, 0],
+        [3, 4, 5],
+        [0, 6, 7]
+    ])
+
+# Initialize V
+V = {2, 3, 4, 5, 6}
+
+# Init class
+neighborhood = Neighborhood(matrix, V)
+
+```
+
+### Step 4: Retrieving Neighbors and Displaying Results
+
+```python
+four_neighbors_with_adjacency = neighborhood.get_four_neighbors(1, 1, apply_adjacency=True)
+four_neighbors_without_adjacency = neighborhood.get_four_neighbors(1, 1)
+
+print("Four Neighbors with Adjacency:", four_neighbors_with_adjacency)
+print("Four Neighbors without Adjacency:", four_neighbors_without_adjacency)
+#
+ascciMatrix=neighborhood.getAscciMatrix(four_neighbors_with_adjacency)
+
+for element in ascciMatrix:
+    print(element)
+```
+
+### Step 5: Output
+
+```python
+Four Neighbors with Adjacency: [(0, 1), (2, 1), (1, 0), (1, 2)]
+Four Neighbors without Adjacency: [(0, 1), (2, 1), (1, 0), (1, 2)]
+['+', '*', '+']
+['*', 'P', '*']
+['+', '*', '+']
+```
+
+</Steps>
