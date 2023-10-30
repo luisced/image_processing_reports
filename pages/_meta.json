@@ -1,4 +1,20 @@
 {
-  "1_parcial": "1er Parcial",
-  "2_parcial": "2ndo Parcial"
+
+  "1_parcial": {
+    "title":"1er Parcial",
+    "type": "page"
+  },
+  "2_parcial": {
+  "title":"2ndo Parcial",
+  "type": "page"
+},
+  "3_parcial": {
+  "title":"3er Parcial",
+  "type": "page",
+  "display": "hidden"
+},
+"index": {
+    "title":"Inicio",
+    "type": "page"
+  }
 }
