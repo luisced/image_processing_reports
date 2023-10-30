@@ -10,6 +10,13 @@ const config: DocsThemeConfig = {
 	footer: {
 		text: "MIT 2023 © Procesamiento de Imágenes",
 	},
+	sidebar: {
+		toggleButton: true,
+	},
+	navigation: {
+		prev: true,
+		next: true,
+	},
 };
 
 export default config;
