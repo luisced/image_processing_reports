@@ -1,5 +1,10 @@
 {
-    "abstract": "Abstract",
+    "abstract": {
+      "title": "Abstract",
+      "theme": {
+        "typesetting": "article"
+      }
+    },
     "basics": "Python Basics",
     "numpy": "Numpy",
     "open_cv": "Open CV",

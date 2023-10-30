@@ -1,3 +1,17 @@
 {
-    "abstract":"Abstract"
+    "abstract": {
+        "title": "Abstract",
+        "theme": {
+          "typesetting": "article"
+        }
+      },
+    "---":{
+        "type":"separator"
+    },
+    "vision": "1. Vision",
+    "vecindad": "2. Vecindad",
+    "----":{
+        "type":"separator"
+    },
+    "conclusions": "Conclusions"
 }
