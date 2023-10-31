@@ -1,0 +1,9 @@
+### Definicion
+
+La correlación espacial y la convolución en el procesamiento digital de imágenes son operaciones matemáticas utilizadas para procesar una imagen mediante el deslizamiento de una máscara o kernel sobre ella. La correlación mide la similitud entre la máscara y la región de la imagen, mientras que la convolución es similar, pero implica voltear la máscara antes de aplicarla. Ambas técnicas se utilizan para realizar filtros, detección de características y otras operaciones de procesamiento de imágenes.
+
+Para llevar a cabo estos procedimientos se hacen los siguientes pasos:
+
+* 1.- vamos a situar el centro geométrico de nuestro kernel en cada elemento de nuestro arreglo
+* 2.- usar padding (vamos a rellenar con ceros en donde no están definidos los valores de nuestra señal, para poder hacer operaciones)
+* 3.- iterar por cada elemento y con nuestro kernel, vamos a multiplicar valor por valor que corresponda
