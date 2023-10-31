@@ -1,1 +1,67 @@
-# Umbralización
+# Otras Transformaciones
+
+Como veníamos explicando existen distintos tipo de transformaciones y ahora hay dos más que podemos abrodar los cuales son:
+
+- Transformación logarítmica
+
+- Transformación de Potencia o Gamma
+
+## Transformación logarítmica
+
+La forma general de la transformación logarítmica es:
+
+$s=clog(1+r)$
+
+Donde c es una constante calculada por: 255/(log (1 + m)), 
+donde m es el píxel más grande en la imagen.El valor 1 se añade a cada uno de los valores de los píxeles de 
+la imagen de entrada porque si hay una intensidad de píxel de 
+0 en la imagen, entonces log (0) es igual a infinito. Así que se 
+añade 1, para que el valor mínimo sea al menos 1.
+
+
+```py
+C = 255 / np.log(1 + np.max(img))
+filas, columnas = img.shape
+img_log = img.copy()
+
+for f in range(filas):
+    for c in range(columnas):
+        img_log[f, c] = C * np.log(1 + img_log[f, c])
+```
+recuerda que la imagen tiene que estar en escalas de grises
+Para lograr el efeto contrario aplicamos el logarimo inverso o exponencial de la forma 
+
+$ S=EXP(R^(1/C))-1$
+
+## Transformación de potencia o gamma
+La forma general de la transformaciones de ley de potencia es:
+
+$s = cr^y$
+
+Donde C y y son constentes postivas
+
+```py
+img_potencia = img.copy()
+potencia = 5
+
+for f in range(filas):
+    for c in range(columnas):
+        img_potencia[f, c] = img[f, c] ** potencia
+```
+
+o de otra manera: 
+
+```py
+plt.imshow(np.power(img, 5), "gray")
+```
+
+## Usos e implementación
+
+La transformación logarítmica es un tipo de procesamiento de imágenes que se utiliza para transformar una imagen en una representación logarítmica.
+ Esta transformación se utiliza a menudo para mejorar el contraste de una imagen o para aumentar la visibilidad de los detalles en una imagen.
+
+
+La corrección gamma es importante para mostrar correctamente las imágenes en una pantalla, para 
+evitar el blanqueo u oscurecimiento de las imágenes cuando se ven desde diferentes tipos de monitores 
+con diferentes ajustes de visualización. Esto se hace porque nuestros ojos perciben las imágenes en una 
+curva en forma de gamma, mientras que las cámaras capturan las imágenes de forma lineal.
