@@ -11,6 +11,7 @@
     "vision": "1. Vision",
     "vecindad": "2. Vecindad",
     "histograma": " Histograma",
+    "ecualizacion":" Ecualizacion",
     "----":{
         "type":"separator"
     },
