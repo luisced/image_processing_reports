@@ -1,10 +1,5 @@
 {
     "1":"a. Transformaciones de identidad y fitrado espacial",
-    "2":"b. Treshholding",
-    "3":"c. Umbralización",
-    "4":"d. Negativos gris y color",
-    "5":"e. Operaciones bit a bit",
-    "6":"f. Transformación logarítmica",
-    "7":"g. Transformación de potencia",
-    "8":"h. Corección gama"
+    "2":"b. Negativos gris y color",
+    "3":"f. Transformación logarítmica y de potencia"
 }
