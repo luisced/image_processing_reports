@@ -12,6 +12,8 @@
     "vecindad": "2. Vecindad",
     "histograma": " Histograma",
     "ecualizacion":" Ecualizacion",
+    "espacios_color":" Cambios de espacio de color",
+    "Apilamiento":"Apilamiento de numpy",
     "----":{
         "type":"separator"
     },
