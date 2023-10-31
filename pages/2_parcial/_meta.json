@@ -17,7 +17,12 @@
     "filtrado":" Filtrado",
     "mascaras":" Mascaras",
     "----":{
+
+    "Transformaciones":"3.Transformaciones",
+    "---":{
+
         "type":"separator"
     },
     "conclusions": "Conclusions"
+}
 }

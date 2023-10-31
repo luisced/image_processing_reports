@@ -1,0 +1,66 @@
+# Transformaciones de intensidad y filtrado espacial
+
+El dominio espacial opera directamente sobre los pixeles de una imagen a diferencia por ejemplo del dominio de la frecuencia en el que las operaciones se realizan dobre la transformada de furier.
+
+## Ecuación #1
+
+$$g(x,y) = T[f(x,y)]$$
+
+donde $$f(x,Y)$$ es la imagen original, $$g(x,y)$$ es el operador de salida.
+
+
+Las transformaciones de intensidad son una de las técnicas más sencillas de procesamiento de imágenes. Hay tres tipos básicos de funciones utilizadas frecuentemente en el procesamiento de imágenes: 
+lineal (transformaciones negativas y transformaciones de identidad), logarítmicas (transformaciones  logarítmicas y logarítmicas inversas) y ley de potencia (transformaciones de enésima potencia y enésima raíz).
+
+
+## Treshholding o Umbralización
+Todos los pixeles que pasen del umbral (128) se van a mandar a 255 y los que no lo pasen se van a pasar a 0, 
+por lo que vamos a tener como resultado una imagen binarizada, o una imagen en blanco y negro.
+
+Paso 1 Leer la imágen:
+```py
+import numpy as np
+import cv2 as cv
+import matplotlib.pyplot as plt
+
+image = cv.imread(r"C:\Users\emili\OneDrive\Escritorio\UP\TERCER_SEMESTRE\Procesamiento_digital_de_imagenes\Imagenes\pug.jpg", 0)
+
+plt.imshow(image, cmap="gray")
+``` 
+Paso 2 Creanis uuna matriz con las mismas dimensiones:
+
+```py
+matriz = np.zeros((image.shape[0], image.shape[1]), dtype = np.uint8)
+
+plt.imshow(matriz, cmap= "gray")
+
+```
+
+Paso 3 Aplicamos la condición y asignmaos los nuevos valores en la matriz:
+```py
+for i in range(0, image.shape[0], 1):
+    for l in range(0, image.shape[1], 1):
+        if(image[i][l] >= 125):
+            matriz[i][l] = 255
+        else:
+            matriz[i][l] = 0
+
+plt.imshow(matriz, cmap="gray")
+```
+OJO hay un método más faicl para la Umbralización:
+
+```py
+cv.threshold(image, 128, 1, cv.THRESH_BINARY)
+```
+(tendremos que plotear el ssegundo elemento de la tupla, porque esa es la imagen)
+
+```py 
+cv.threshold(image, 128, 1, cv.THRESH_BINARY)[1]
+plt.imshow(cv.threshold(image, 128, 1, cv.THRESH_BINARY)[1], cmap="gray")
+```
+
+También existe la manera invertida: 
+
+```py
+plt.imshow(cv.threshold(image, 128, 1, cv.THRESH_BINARY_INV)[1], cmap="gray")
+```
