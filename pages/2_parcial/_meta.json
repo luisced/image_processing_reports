@@ -10,11 +10,17 @@
     },
     "vision": "1. Vision",
     "vecindad": "2. Vecindad",
+<<<<<<< HEAD
     "histograma": " Histograma",
     "ecualizacion":" Ecualizacion",
     "espacios_color":" Cambios de espacio de color",
     "Apilamiento":"Apilamiento de numpy",
     "----":{
+=======
+    "Histograma": " Histograma",
+    "Transformaciones":"3.Transformaciones",
+    "---":{
+>>>>>>> bruno
         "type":"separator"
     },
     "conclusions": "Conclusions"

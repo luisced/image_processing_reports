@@ -1,0 +1,33 @@
+# Negativos gris y color
+
+El negativo de una imagen con niveles de intensidad en el rango [0, L - 1] se obtiene utilizando la 
+función de transformación del negativo 
+
+$ s= L -1- -r $
+
+Invertir los niveles de intensidad de una imagen digital de esta manera produce el equivalente a un negativo fotográfico. Este tipo de procesamiento se utiliza, por 
+ejemplo en la mejora de los detalles blancos o grises incrustados en las regiones oscuras de una imagen, especialmente cuando las zonas 
+negras tienen un tamaño dominante. En escala de grises, áreas claras se tornan oscuras y viceversa. Para imágenes a color, los colores son 
+reemplazados por su color complementario. Así, áreas rojas se tornan cian, las verdes en 
+magenta, y azules en amarillo, y viceversa.
+
+Para poder hacer el negativo de imagenes vamos a tener que usar los contrarios en binario o como en numpy esta "bitwise_not"
+
+bitwise_not es una operación de manipulación de bits que se utiliza para realizar la negación de bits en una imagen binaria. En el contexto de procesamiento de imágenes, una imagen binaria es una imagen en la que cada píxel tiene un valor de 0 o 1, generalmente representando objetos de interés (1) y el fondo (0).
+
+La operación bitwise_not se utiliza para invertir los valores de los píxeles en una imagen binaria. Es decir, los píxeles con valor 1 se convierten en 0, y los píxeles con valor 0 se convierten en 1.
+```py
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Cargar una imagen binaria
+binary_image = cv2.imread('imagen_binaria.png', cv2.IMREAD_GRAYSCALE)
+
+# Aplicar bitwise_not para invertir los valores de los píxeles
+inverted_image = cv2.bitwise_not(binary_image)
+
+# Mostrar la imagen invertida
+plt.imshow('Imagen Invertida', inverted_image)
+
+``` 
