@@ -10,19 +10,19 @@
     },
     "vision": "1. Vision",
     "vecindad": "2. Vecindad",
-    "histograma": " Histograma",
-    "ecualizacion":" Ecualizacion",
-    "espacios_color":" Cambios de espacio de color",
-    "Apilamiento":"Apilamiento de numpy",
-    "filtrado":" Filtrado",
-    "mascaras":" Mascaras",
-    "----":{
+    "transformaciones":"3. Transformaciones",
 
-    "Transformaciones":"3.Transformaciones",
-    "---":{
+    "histograma": "4. Histograma",
+    "ecualizacion":" 5. Ecualizacion",
+    "espacios_color":"6. Cambios de espacio de color",
+    "ampliamiento":"7. Apilamiento de numpy",
+    "filtrado":" 8. Filtrado",
+    "mascaras":" 9. Mascaras",
 
-        "type":"separator"
-    },
-    "conclusions": "Conclusions"
-}
+    "conclusions": {
+        "title": "Conclusions",
+        "theme": {
+          "typesetting": "article"
+        }
+    }
 }
