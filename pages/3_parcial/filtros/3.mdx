@@ -1,0 +1,27 @@
+# Filtros de Sharpening en Procesamiento de Imágenes
+
+Los filtros de sharpening son técnicas utilizadas en el procesamiento de imágenes para resaltar los bordes y detalles de una imagen, mejorando su nitidez y claridad. Estos filtros se aplican mediante la convolución de la imagen original con un kernel específico.
+
+Existen varios tipos de filtros de sharpening, entre los cuales se destacan:
+
+1. Filtro de Laplaciano: Este filtro resalta los cambios bruscos de intensidad en la imagen, realzando los bordes y detalles. Se basa en la segunda derivada de la imagen.
+
+2. Filtro de Unsharp Masking: Este filtro utiliza una versión desenfocada de la imagen original para resaltar los detalles finos. Se obtiene restando la imagen desenfocada de la imagen original y luego sumando el resultado a la imagen original.
+
+3. Filtro de High Boost: Este filtro es similar al filtro de Unsharp Masking, pero permite ajustar el grado de realce de los detalles mediante un parámetro de refuerzo.
+
+Estos filtros son ampliamente utilizados en aplicaciones de mejora de imágenes, como la fotografía, la medicina y la visión por computadora.
+```py 
+import numpy as np
+import cv2 as cv
+import matplotlib.pyplot as plt
+image = cv.imread("Ruta del archivo", 0)
+# Convertir a escala de grises
+gray_img = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
+# Aplicar filtro laplaciano
+laplacian = np.array([[0,1,0],
+                    [1,-4,1],
+                    [0,1,0]])
+cv.filtered2D(gray_img,-1,laplacian)
+plt.imshow(cv.filtered2D(gray_img,-1,laplacian),'gray')
+```

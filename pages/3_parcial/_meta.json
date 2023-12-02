@@ -8,16 +8,9 @@
     "---":{
         "type":"separator"
     },
-    "vision": "1. Vision",
-    "vecindad": "2. Vecindad",
-    "transformaciones":"3. Transformaciones",
-
-    "histograma": "4. Histograma",
-    "ecualizacion":" 5. Ecualizacion",
-    "espacios_color":"6. Cambios de espacio de color",
-    "ampliamiento":"7. Apilamiento de numpy",
-    "filtrado":" 8. Filtrado",
-    "mascaras":" 9. Mascaras",
+    "kernel": "1. Kernel",
+    "Transformaciones_morfologicas": "2. Transformaciones Morfológicas",
+    "filtros":"3. Filtros",
 
     "conclusions": {
         "title": "Conclusions",

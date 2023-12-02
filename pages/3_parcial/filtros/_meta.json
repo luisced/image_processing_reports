@@ -1,4 +1,7 @@
 {
-    "1":"a. Apilamiento de numpy",
-    "2":"b. Ejemplo de apilamiento"
+    "1":"a. Desenfoque Gaussiano",
+    "2":"b. Filtros Smoothing",
+    "3":"c. Filtros Sharpening",
+    "4":"d. Reducción de ruido"
+
 }

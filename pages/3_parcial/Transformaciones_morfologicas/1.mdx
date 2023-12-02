@@ -1,0 +1,74 @@
+# Transformaciones Morfológicas
+
+## Definición de Erosión
+
+La erosión es un proceso morfológico que se utiliza para "encoger" las regiones blancas y ampliar las regiones negras en una imagen binaria.
+**Cómo Funciona**: Un elemento estructurante (kernel) se coloca en cada píxel de la imagen, y el píxel central del kernel se establece en blanco si todos los píxeles cubiertos por el kernel son blancos; de lo contrario, se establece en negro.
+Efecto: Se tiende a eliminar detalles pequeños y conexiones finas en las regiones blancas.
+Pasos para hacer la erosión con OpenCV en python
+1. Cargar una imagen:
+```py
+import numpy as np
+import cv2 as cv
+import matplotlib.pyplot as plt
+
+image = cv.imread("Ruta del archivo", 0)
+
+```
+2. Convertir a escala de grises la imagen:
+```py
+gray_img = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
+```
+3. Crear el kernel (matriz) que se utilizará para realizar la operación de erosión:
+```py
+kernel = np.ones((5,5),np.uint8)
+```
+4. Aplicar la función de erosión:
+```py
+erosion = cv.erode(gray_img, kernel, iterations=1)
+```
+5. Mostrar las dos imágenes original y resultante de la erosión:
+```py
+plt.subplot(121),plt.imshow(image,[],'gray')
+plt.title('Original Image'), plt.xticks([]), plt.yticks([])
+plt.subplot(122),plt.imshow(erosion,[],'gray')
+plt.title('Eroded Image'), plt.xticks([]), plt.yticks([])
+plt.show()
+```
+
+## Definición de Dilatación
+
+
+La dilatación es una operación morfológica que "expande" las regiones blancas y "encoge" las regiones negras en una imagen binaria.
+**Cómo Funciona**: Similar a la erosión, el kernel se coloca en cada píxel, y el píxel central del kernel se establece en blanco si al menos un píxel cubierto por el kernel es blanco; de lo contrario, se establece en negro.
+Efecto: Las regiones blancas tienden a aumentar en tamaño y se conectan entre sí.
+Pasos para hacer Dilatación en python con OpenCV
+1. Cargar una imagen:
+```py
+import numpy as np
+import cv2 as cv
+import matplotlib.pyplot as plt
+
+image = cv.imread("Ruta del archivo", 0)
+
+```
+2. Convertir a escala de grises la imagen:
+```py
+gray_img = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
+```
+3. Crear el kernel (matriz) que se utilizará para realizar la operación de dilatación:
+```py 
+kernel = np.ones((5,5),np.uint8)
+```
+4. Aplicar la función de dilatación:
+```py 
+dilation = cv.dilate(gray_img, kernel, iterations=1)
+```
+5. Mostrar las dos imágenes original y resultante de la dilatación:
+```py
+plt.subplot(121),plt.imshow(image,[],'gray')
+plt.title('Original Image'), plt.xticks([]), plt.yticks([])
+plt.subplot(122),plt.imshow(dilation,[],'gray')
+plt.title('Dilated Image'), plt.xticks([]), plt.yticks([])
+plt.show()
+```

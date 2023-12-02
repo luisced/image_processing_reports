@@ -1,0 +1,94 @@
+# Kernels y tipos de Kernels
+En procesamiento de imágenes, los "kernels" son matrices que se utilizan en operaciones de convolución y morfológicas para realizar diversas transformaciones en las imágenes. Aquí hay algunos tipos comunes de kernels utilizados en diferentes aplicaciones:
+```py
+
+import numpy as np
+
+# Kernel de desenfoque
+blur_kernel = np.array([[1, 1, 1],
+                        [1, 1, 1],
+                        [1, 1, 1]]) / 9
+
+# Kernel de realce de bordes
+edge_kernel = np.array([[-1, -1, -1],
+                        [-1,  8, -1],
+                        [-1, -1, -1]])
+
+# Kernel de detección de bordes
+edge_detection_kernel = np.array([[-1, -1, -1],
+                                  [-1,  8, -1],
+                                  [-1, -1, -1]])
+
+# Kernel de suavizado
+smooth_kernel = np.array([[1, 2, 1],
+                          [2, 4, 2],
+                          [1, 2, 1]]) / 16
+
+# Kernel de realce de detalles
+detail_enhancement_kernel = np.array([[-1, -1, -1],
+                                      [-1,  9, -1],
+                                      [-1, -1, -1]])
+
+# Kernel de enfoque
+sharpen_kernel = np.array([[0, -1, 0],
+                           [-1,  5, -1],
+                           [0, -1, 0]])
+
+# Kernel de emboss
+emboss_kernel = np.array([[-2, -1, 0],
+                          [-1,  1, 1],
+                          [ 0,  1, 2]])
+
+# Kernel de dilatación
+dilation_kernel = np.array([[0, 1, 0],
+                            [1, 1, 1],
+                            [0, 1, 0]])
+
+# Kernel de erosión
+erosion_kernel = np.array([[0, 1, 0],
+                           [1, 1, 1],
+                           [0, 1, 0]])
+
+# Kernel de apertura
+opening_kernel = np.array([[0, 1, 0],
+                           [1, 1, 1],
+                           [0, 1, 0]])
+
+# Kernel de cierre
+closing_kernel = np.array([[0, 1, 0],
+                           [1, 1, 1],
+                           [0, 1, 0]])
+
+# Kernel de gradiente
+gradient_kernel = np.array([[-1, -1, -1],
+                            [ 0,  0,  0],
+                            [ 1,  1,  1]])
+
+# Kernel de top hat
+tophat_kernel = np.array([[0, 1, 0],
+                          [1, 1, 1],
+                          [0, 1, 0]])
+
+# Kernel de black hat
+blackhat_kernel = np.array([[0, 1, 0],
+                            [1, 1, 1],
+                            [0, 1, 0]])
+
+# Kernel de esqueleto
+skeleton_kernel = np.array([[0, 1, 0],
+                            [1, 1, 1],
+                            [0, 1, 0]])
+
+# Kernel de esqueleto grueso
+thick_skeleton_kernel = np.array([[1, 1, 1],
+                                  [1, 1, 1],
+                                  [1, 1, 1]])
+
+# Kernel de esqueleto fino
+thin_skeleton_kernel = np.array([[0, 1, 0],
+                                 [1, 1, 1],
+                                 [0, 1, 0]])
+
+```
+
+Puedes diseñar y utilizar kernels personalizados según tus necesidades específicas. Estos pueden tener diferentes tamaños y patrones para realizar operaciones especializadas.

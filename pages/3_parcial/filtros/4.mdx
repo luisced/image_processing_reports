@@ -1,0 +1,28 @@
+# MedianBlur
+
+El filtro MedianBlur es una técnica de procesamiento de imágenes que se utiliza para reducir el ruido y suavizar la imagen. 
+
+Este filtro se basa en el cálculo de la mediana de los píxeles vecinos de cada píxel de la imagen. La mediana es el valor central cuando los valores se ordenan en orden ascendente o descendente. 
+
+Al aplicar el filtro MedianBlur, se reemplaza el valor de cada píxel por la mediana de los valores de los píxeles vecinos. Esto ayuda a eliminar el ruido y las imperfecciones en la imagen, preservando al mismo tiempo los bordes y los detalles importantes.
+
+El filtro MedianBlur es ampliamente utilizado en el procesamiento de imágenes para mejorar la calidad de las imágenes, especialmente en aplicaciones como la eliminación de ruido en fotografías, la mejora de imágenes médicas y la detección de bordes.
+
+Para aplicar el filtro MedianBlur en una imagen, se utiliza una ventana deslizante que se desplaza por toda la imagen. En cada posición de la ventana, se calcula la mediana de los píxeles vecinos y se asigna como nuevo valor al píxel central de la ventana.
+
+El tamaño de la ventana deslizante utilizado para el cálculo de la mediana afecta el grado de suavizado de la imagen. Un tamaño de ventana más grande produce un mayor suavizado, pero también puede eliminar detalles finos de la imagen.
+
+El filtro MedianBlur se implementa en varias bibliotecas y herramientas de procesamiento de imágenes, como OpenCV, MATLAB y Python. En estas bibliotecas, se proporcionan funciones y métodos para aplicar el filtro MedianBlur a una imagen de forma sencilla y eficiente.
+
+```py 
+import numpy as np
+import cv2 as cv
+import matplotlib.pyplot as plt
+image = cv.imread("Ruta del archivo", 0)
+blur= cv.medianBlur(image,5)
+plt.subplot(121),plt.imshow(image,cmap = 'gray')
+plt.title('Original Image'), plt.xticks([]), plt.yticks([])
+plt.subplot(122),plt.imshow(blur,cmap = 'gray')
+plt.title('Averaging Blurred Image'), plt.xticks([]), plt.yticks([])
+plt.show()
+```

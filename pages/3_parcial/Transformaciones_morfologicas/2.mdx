@@ -1,0 +1,67 @@
+# Transformaciones Morfológicas
+
+## Definición Apertura
+
+La apertura es una operación morfológica que combina una erosión seguida de una dilatación. Su objetivo principal es eliminar pequeños detalles, como el ruido, y abrir brechas entre los objetos.
+**Cómo Funciona**:
+1.- Se aplica una erosión a la imagen para "adelgazar" las regiones blancas y eliminar pequeños detalles.
+2.- Luego, se aplica una dilatación para restaurar el tamaño de los objetos restantes y cerrar brechas entre ellos.
+Efecto: Reduce el tamaño de los objetos, elimina detalles finos y pequeñas conexiones entre regiones blancas.
+Ahora se detallara como hacer dilatación con OpenCV en python:
+1. Leemos la imagen 
+```py
+import numpy as np
+import cv2 as cv
+import matplotlib.pyplot as plt
+
+image = cv.imread("Ruta del archivo", 0)
+
+```
+2. Convertimos la imagen a escala de grises (si no lo hacemos antes)
+```py
+gray_img = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
+```
+3. Aplicamos la función de apertura
+```py
+kernel = np.ones((5,5),np.uint8)
+opening = cv2.morphologyEx(image, cv2.MORPH_OPEN, kernel)
+```
+4. Mostramos la imagen original y la dilatada
+```py
+plt.subplot(121),plt.imshow(image,[],'gray')
+plt.title('Original Image'), plt.xticks([]), plt.yticks([])
+plt.subplot(122),plt.imshow(opening,[],'gray')
+plt.title('Opened Image'), plt.xticks([]), plt.yticks([])
+plt.show()
+```
+## Definición Cierre
+La operación de cierre combina una dilatación seguida de una erosión. Su objetivo principal es cerrar brechas entre los objetos y llenar pequeños agujeros en regiones blancas.
+**Cómo Funciona**:
+1.- Se aplica una dilatación a la imagen para cerrar brechas y unir regiones blancas cercanas.
+2.- Luego, se aplica una erosión para restaurar el tamaño de los objetos y eliminar pequeños detalles.
+Efecto:Aumenta el tamaño de los objetos, cierra brechas y conecta regiones blancas.
+Ahora se detallara como hacer el cierre con OpenCV en python:
+1. Leemos la imagen
+```py 
+import numpy as np
+import cv2 as cv
+import matplotlib.pyplot as plt
+image = cv.imread("Ruta del archivo", 0)
+```
+2. Convertimos la imagen a escala de grises (si no lo hacemos antes)
+```py 
+gray_img = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
+```
+3. Aplicamos la función de cierre
+```py 
+kernel = np.ones((5,5),np.uint8)
+closing = cv2.morphologyEx(image, cv2.MORPH_CLOSE, kernel)
+```
+4. Mostramos la imagen original y la cerrada
+```py
+plt.subplot(121),plt.imshow(image,[],'gray')
+plt.title('Original Image'), plt.xticks([]), plt.yticks([])
+plt.subplot(122),plt.imshow(closing,[],'gray')
+plt.title('Closed Image'), plt.xticks([]), plt.yticks([])
+plt.show()
+```

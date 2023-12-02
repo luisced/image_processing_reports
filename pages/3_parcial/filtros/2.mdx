@@ -1,0 +1,28 @@
+# Desenfoque Gaussiano en Procesamiento de Imágenes
+
+El desenfoque gaussiano es una técnica utilizada en el procesamiento de imágenes para suavizar o difuminar una imagen. Se basa en la convolución de la imagen original con un kernel gaussiano.
+
+El kernel gaussiano es una matriz de valores que sigue una distribución gaussiana, donde los valores cercanos al centro del kernel tienen más peso que los valores en los bordes. Al convolucionar la imagen con este kernel, se produce un efecto de suavizado, eliminando detalles y reduciendo el ruido.
+
+El desenfoque gaussiano es ampliamente utilizado en aplicaciones de procesamiento de imágenes, como la reducción de ruido, la eliminación de imperfecciones y la suavización de bordes.
+
+A continuación se muestra un ejemplo de código en Python que aplica el desenfoque gaussiano a una imagen utilizando la biblioteca OpenCV:
+Usando OpenCV y matplotlib en python:
+```py
+import cv2
+import numpy as np
+from matplotlib import pyplot as plt
+# Cargar imagen
+img = cv2.imread('lena_gray.jpg',0)
+# Convertir a escala de grises
+gris=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+# Aplicar filtro gaussiano
+gaussianBlurred = cv2.GaussianBlur(gris,(7,7),0)
+# Mostrar la imagen original con el filtro gaussiano aplicado
+plt.subplot(1,2,1),plt.imshow(img[:,:],cmap = 'gray')   
+plt.title('Original Image'), plt.xticks([]), plt.yticks([])
+plt.subplot(1,2,2),plt.imshow(gaussianBlurred,cmap = 'gray')
+plt.title('Averaging Filtered Image'), plt.xticks([]), plt.yticks([])
+plt.show()
+```
+
